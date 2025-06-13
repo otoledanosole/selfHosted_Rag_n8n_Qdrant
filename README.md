@@ -66,7 +66,8 @@ Podemos ver los diferentes modelos con sus cuantificaciones.
 
 Para istalar una, buscaremos el comando correspondiente a la cuantificación que deseemos:
 
-<img width="398" alt="image" src="https://github.com/user-attachments/assets/d1196a16-5b73-486c-b5c9-6abff3559c09" />
+ollama pull gemma3:4b
+
 
 ---
 
