@@ -7,7 +7,7 @@ El primer paso serà clonar el repositorio de git que vamos a usar para estas pr
 
 ---
 
-1. Iremos al repositorio y copiaremos la url para clonar:
+1. Iremos al repositorio de [Cole Medin](https://github.com/coleam00) y copiaremos la url para clonar:
 
   <img width="697" alt="image" src="https://github.com/user-attachments/assets/e69721a3-6e09-4c5b-bb0c-a80e5b367429" />
 
@@ -126,5 +126,10 @@ Después comprobaremos el acceso desde Docker ejecutando el comando que aparece 
 9. En Open WebUI, seleccionaremos el engranaje al lado de la función y pegaremos el Production URL en el campo correspondiente. ¡Importante: Hay que substituir localhost por el nombre del contenedor de n8n, en este caso: n8n!
 10. Habilitamos la función de Open WebUI.
    
+---
 
+
+Fuentes:
+[Ejecute TODA su IA localmente en minutos (LLM, RAG y más)](https://www.youtube.com/watch?v=V_0dNE-H2gw)
+[N8N + WebUI + Docker | Crea tu Propio ChatGPT en Local con Memoria y RAG](https://www.youtube.com/watch?v=9nWRMHT1E0w)
 
