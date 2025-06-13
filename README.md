@@ -86,7 +86,45 @@ Si no hemos añadido el modelo en el Docker Compose, lo podemos instalar desde l
 
 ---
 
+Comprobaremos que Docker tiene acceso a la GPU de Nvidia. Primero nos aseguraremos de tener los drivers CUDA instalados ejecutando en una CMD: nvidia-smi
 
+Después comprobaremos el acceso desde Docker ejecutando el comando que aparece en esta pagina: [GPU support in Docker Desktop for Windows](https://docs.docker.com/desktop/features/gpu/)
 
-El siguiente paso serà instalar NVIDIA Container Tools. Para ello iremos a:  https://github.com/ollama/ollama/blob/main/docs/docker.md
+---
+
+# Guia Rapida para inicializar el contenedor
+
+1. El primer paso serà abrir el contenedor de n8n http://localhost:5678. Solo hay que hacer esto la primera vez. No estas creando una cuenta real, es solo una cuenta local para el servicio
+
+2. Abriremos el Workflow incluido en el ejemplo: Local RAG AI Agent
+
+3. Buscaremos Ollama Chat Model, lo abriremos y crearemos una nueva credencial. En el campo Base URL pondremos: http://ollama:11434
+
+4. Buscaremos Postgre Chat Memory, lo abriremos y crearemos una nueva credencial.
+
+   <img width="601" alt="image" src="https://github.com/user-attachments/assets/58c8fef3-6e2e-4fc9-9da1-f65de433c6b4" />
+
+   Postgre creará automaticamente el nombre de la tabla necesaria.
+
+5. Buscaremos Qdrant Vector Store, lo abriremos y crearemos una nueva credencial.
+
+   <img width="602" alt="image" src="https://github.com/user-attachments/assets/b1b04cd4-d786-4a5f-b51b-a442942a7793" />
+
+   La API Key puede ser cualquier valor ya que el servicio esta corriendo localmente, en nuestro caso usaremos la N8N_ENCRYPTION_KEY que hemos usado en el .env
+
+   Si abrimos http://localhost:6333/dashboard podremos ver nuestra base de datos de Qdrant donde podremos ver todos los vectores que tenemos creados.
+
+6. Configuraremos las credenciales de las diferentes herramientas de Google utilizadas. Para ello, seguiremos las instrucciones de n8n: [Google: OAuth2 single service](https://docs.n8n.io/integrations/builtin/credentials/google/oauth-single-service/?utm_source=n8n_app&utm_medium=credential_settings&utm_campaign=create_new_credentials_modal)
+
+7. Abre http://localhost:3000/ en el navegador e inicia sesión. Solo hay que hacer esto la primera vez. No estas creando una cuenta real, es solo una cuenta local para el servicio.
+
+   En el menu izquierdo, ves a Tu usuario en la parte inferior -> Administración -> Funciones -> Añade una función con el simbolo + -> Pon un nombre y pega el codigo n8n_pipe.py ubicado en ai-agents-masterclass\local-ai-packaged.
+
+   También la podemos obtener aquí [OpenWebUI N8N Pipe](https://openwebui.com/f/coleam/n8n_pipe)
+
+8. En n8n, abriremos el bloque Webhook y copiaremos el Production URL.
+9. En Open WebUI, seleccionaremos el engranaje al lado de la función y pegaremos el Production URL en el campo correspondiente. ¡Importante: Hay que substituir localhost por el nombre del contenedor de n8n, en este caso: n8n!
+10. Habilitamos la función de Open WebUI.
+   
+
 
